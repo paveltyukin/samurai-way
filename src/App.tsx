@@ -6,7 +6,7 @@ import Profile from './components/Profile/Profile';
 import Dialogs from "./components/Dialogs/Dialogs";
 import { Route, Routes } from 'react-router-dom';
 
-const App = (props) => {
+const App = (props: any) => {
   return (
     <div className='app-wrapper'>
       <Header />
