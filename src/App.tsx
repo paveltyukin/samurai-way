@@ -1,12 +1,12 @@
-import './style.sass';
+import React from 'react';
+import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import { Route, Routes } from 'react-router-dom';
-import Dialogs from './components/Dialogs/Dialogs';
 import Profile from './components/Profile/Profile';
+import Dialogs from "./components/Dialogs/Dialogs";
+import { Route, Routes } from 'react-router-dom';
 
-export const App = (props: any) => {
-
+const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
@@ -15,14 +15,21 @@ export const App = (props: any) => {
         <Routes>
           <Route
             path='/dialogs'
-            element={<Dialogs state={props.state.dialogsPage} />}
+            element={<Dialogs store={props.store} />}
           />
           <Route
             path='/profile'
-            element={<Profile state={props.state.profilePage} addPost={props.addPost} />}
+            element={
+              <Profile
+                profilePage={props.state.profilePage}
+                dispatch={props.dispatch}
+              />
+            }
           />
         </Routes>
       </div>
     </div>
-  )
-};
+    )
+}
+
+export default App;
